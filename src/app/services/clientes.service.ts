@@ -8,12 +8,15 @@ import { catchError, EMPTY, map, Observable } from 'rxjs';
 })
 export class ClientesService {
 
-  url = 'http://localhost:3000/cliente';
+  url = 'http://localhost:3000/clientes';
 
   constructor(private http: HttpClient) { }
 
-  create(cliente: Cliente){
-    return this.http.post(this.url, cliente);
+  create(cliente: Cliente):Observable<Cliente>{
+    return this.http.post<Cliente>(this.url, cliente).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
   }
 
   getAll():Observable<Cliente[]>{
