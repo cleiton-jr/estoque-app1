@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class CreateClientPage implements OnInit {
+  
   nome = '';
   email = '';
   senha = '';

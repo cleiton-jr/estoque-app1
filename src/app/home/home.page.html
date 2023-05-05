@@ -18,8 +18,19 @@
     </ion-label>
 
     <ion-label>
-     <a href="mailto:{{cliente.email}}"> {{cliente.email}}</a>
+      <a href="mailto:{{cliente.email}}"> {{cliente.email}}</a>
     </ion-label>
 
+    <ion-button color="dark" (click)="alterarCliente(cliente.id!)">
+      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button color="dark" (click)="excluirCliente(cliente.id!)">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
   </ion-item>
+
+  <ion-button routerLink="/create-cliente" expand="block">
+    Adicionar Cliente
+  </ion-button>
 </ion-content>
